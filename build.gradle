@@ -17,6 +17,16 @@
 import org.gradle.build.Install
 import org.gradle.cleanup.EmptyDirectoryCheck
 
+plugins {
+    id 'org.sonarqube' version '2.0.1'
+}
+
+allprojects {
+    project.pluginManager.withPlugin('java') {
+        apply plugin: 'jacoco'
+    }
+}
+
 defaultTasks 'assemble'
 apply plugin: 'java-base'
 apply plugin: 'build-types'
